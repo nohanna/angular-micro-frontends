@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:shell": "ng serve",
-    "start:profile": "ng serve mdmf-profile",
-    "build:shared": "ng build mdmf-shared",
-    "build:shell": "ng build mdmf-shell --prod",
-    "build:profile": "ng build mdmf-profile --prod",
-    "test": "ng test mdmf-shared & ng test mdmf-profile & ng test mdmf-shell",
-    "lint": "ng lint",
-    "e2e": "ng e2e mdmf-profile & ng e2e mdmf-shell"
+    "start:first-app": "ng serve first-app",
+    "start:second-app": "ng serve second-app",
+    "start:third-app": "ng serve third-app",
+    "build:shared": "ng build shared",
+    "build:first-app": "ng build first-app --prod",
+    "build:second-app": "ng build second-app --prod",
+    "build:third-app": "ng build third-app --prod",
+    "lint": "ng lint"
   },
   "private": true,
   "resolutions": {
