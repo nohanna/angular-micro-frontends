@@ -13,6 +13,7 @@ import { SharedModule } from 'projects/shared/src/public-api';
     CommonModule,
     ProfileRoutingModule,
     SharedModule
-  ]
+  ],
+  exports: [ProfileComponent, SettingsComponent]
 })
 export class ProfileModule { }

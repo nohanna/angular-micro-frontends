@@ -11,8 +11,8 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "second-app",
-      library: { type: "var", name: "second-app" },
+      name: "profile",
+      library: { type: "var", name: "profile" },
       filename: "remoteEntry.js",
       exposes: {
         ProfileModule:
@@ -21,7 +21,8 @@ module.exports = {
       shared: {
         "@angular/core": { singleton: true, eager: true },
         "@angular/common": { singleton: true, eager: true },
-        "@angular/router": { singleton: true, eager: true }
+        "@angular/router": { singleton: true, eager: true },
+        "shared": { singleton: true, eager: true },
       },
     }),
   ],

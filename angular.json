@@ -3,129 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-micro-frontends": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/angular-micro-frontends",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "angular-micro-frontends:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "angular-micro-frontends:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "angular-micro-frontends:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-micro-frontends:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-micro-frontends:serve:production"
-            }
-          }
-        }
-      }
-    },
     "first-app": {
       "projectType": "application",
       "schematics": {
@@ -141,7 +18,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/first-app",
             "index": "projects/first-app/src/index.html",
@@ -184,18 +61,22 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/first-app/webpack.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "first-app:build"
+            "browserTarget": "first-app:build",
+            "extraWebpackConfig": "projects/first-app/webpack.config.js",
+            "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "first-app:build:production"
+              "browserTarget": "first-app:build:production",
+              "extraWebpackConfig": "projects/first-app/webpack.config.js"
             }
           }
         },
@@ -264,7 +145,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/second-app",
             "index": "projects/second-app/src/index.html",
@@ -307,18 +188,22 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/second-app/webpack.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "second-app:build"
+            "browserTarget": "second-app:build",
+            "extraWebpackConfig": "projects/second-app/webpack.config.js",
+            "port": 4201
           },
           "configurations": {
             "production": {
-              "browserTarget": "second-app:build:production"
+              "browserTarget": "second-app:build:production",
+              "extraWebpackConfig": "projects/second-app/webpack.config.js"
             }
           }
         },
@@ -387,7 +272,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/third-app",
             "index": "projects/third-app/src/index.html",
@@ -430,18 +315,22 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/third-app/webpack.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "third-app:build"
+            "browserTarget": "third-app:build",
+            "extraWebpackConfig": "projects/third-app/webpack.config.js",
+            "port": 4202
           },
           "configurations": {
             "production": {
-              "browserTarget": "third-app:build:production"
+              "browserTarget": "third-app:build:production",
+              "extraWebpackConfig": "projects/third-app/webpack.config.js"
             }
           }
         },

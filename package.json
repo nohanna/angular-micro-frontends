@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:first-app": "ng serve first-app",
-    "start:second-app": "ng serve second-app",
-    "start:third-app": "ng serve third-app",
+    "start:first-app": "ng serve first-app --disable-host-check",
+    "start:second-app": "ng serve second-app --disable-host-check",
+    "start:third-app": "ng serve third-app --disable-host-check",
     "build:shared": "ng build shared",
     "build:first-app": "ng build first-app --prod",
     "build:second-app": "ng build second-app --prod",

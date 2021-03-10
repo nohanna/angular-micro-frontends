@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit {
       exposedModule: this.exposedModule,
     }).then(federated => {
       const component: any = federated[this.exposedModule].ɵmod.exports.find((e: any) => e.name === this.componentName);
+      console.log(federated[this.exposedModule]);
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
       const { instance } = this.profileComponent.createComponent(
         componentFactory, undefined, ɵcreateInjector(federated[this.exposedModule], this.injector)
