@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ProjectComponent } from './components/project/project.component';
 import { loadRemoteModule } from './utils/federation.utils';
 
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "home",
+    pathMatch: "full"
+  },
+  {
+    path: "home",
     component: HomeComponent
   },
   {
-    path: "profile",
-    loadChildren: () =>
-      loadRemoteModule({
-        remoteName: "profile",
-        remoteEntry: "http://localhost:4201/remoteEntry.js",
-        exposedModule: "ProfileModule",
-      }).then((m) => m.ProfileModule),
+    path: "project/:name",
+    component: ProjectComponent
   }
 ];
 

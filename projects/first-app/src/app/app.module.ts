@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MicrofrontendService } from './loader/loader.service';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SharedModule } from 'shared';
+import { ProjectComponent } from './components/project/project.component';
 
 export function initializeApp(mfService: MicrofrontendService): () => Promise<void> {
   return () => mfService.initialise();
@@ -14,11 +16,13 @@ export function initializeApp(mfService: MicrofrontendService): () => Promise<vo
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

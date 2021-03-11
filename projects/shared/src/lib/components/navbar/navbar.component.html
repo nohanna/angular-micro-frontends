@@ -1,1 +1,9 @@
-<p>navbar works!</p>
+<ul>
+  <li [routerLink]="/home">Home</li>
+  <ng-container *ngFor="let link of links">
+    <li>{{ link }}</li>
+  </ng-container>
+  <ng-container *ngFor="let customLink of customLinks">
+    <li>{{ customLink }}</li>
+  </ng-container>
+</ul>

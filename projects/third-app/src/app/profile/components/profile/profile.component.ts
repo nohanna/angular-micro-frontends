@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  links: { name: string, route: string }[];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.links = [
+      { name: 'Images', route: 'home' },
+      { name: 'Videos', route: 'home' }
+    ];
   }
 
 }

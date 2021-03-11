@@ -5,3 +5,10 @@ export type Microfrontend = LoadRemoteModuleOptions & {
   routePath: string;
   ngModuleName: string;
 };
+
+export interface Remote {
+  remoteEntry: string;
+  remoteName: string;
+  exposedModule: string;
+  componentName: string;
+}
