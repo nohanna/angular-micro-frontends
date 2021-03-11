@@ -1,9 +1,9 @@
 <ul>
-  <li [routerLink]="/home">Home</li>
+  <li [routerLink]="['/home']">Home</li>
   <ng-container *ngFor="let link of links">
-    <li>{{ link }}</li>
+    <li><a [routerLink]="[link.route]">{{ link.name }}</a></li>
   </ng-container>
   <ng-container *ngFor="let customLink of customLinks">
-    <li>{{ customLink }}</li>
+    <li><a [routerLink]="[customLink.route]">{{ customLink.name }}</a></li>
   </ng-container>
 </ul>

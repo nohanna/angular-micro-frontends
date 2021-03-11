@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.links = [
-      { name: 'second-app', route: 'project/second-app' },
-      { name: 'third-app', route: 'project/third-app' }
+      { name: 'second-app', route: '/project/second-app' },
+      { name: 'third-app', route: '/project/third-app' }
     ];
   }
 
