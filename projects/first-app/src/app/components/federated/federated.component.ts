@@ -2,13 +2,13 @@ import { Component, Input, ComponentFactoryResolver, Injector, OnInit, ViewChild
 import { loadRemoteModule } from "../../utils/federation.utils";
 
 @Component({
-  selector: "profile-component",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.scss"],
+  selector: "federated-component",
+  templateUrl: "./federated.component.html",
+  styleUrls: ["./federated.component.scss"],
 })
-export class ProfileComponent implements OnInit {
-  @ViewChild('profileComponent', { read: ViewContainerRef })
-  private profileComponent!: ViewContainerRef;
+export class FederatedComponent implements OnInit {
+  @ViewChild('federatedComponent', { read: ViewContainerRef })
+  private federatedComponent!: ViewContainerRef;
   @Input()
   private remoteEntry!: string;
   @Input()
@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
     }).then(federated => {
       const component: any = federated[this.exposedModule].ɵmod.exports.find((e: any) => e.name === this.componentName);
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-      const { instance } = this.profileComponent.createComponent(
+      const { instance } = this.federatedComponent.createComponent(
         componentFactory, undefined, ɵcreateInjector(federated[this.exposedModule], this.injector)
       );
     });

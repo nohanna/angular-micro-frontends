@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MicrofrontendService } from './loader/loader.service';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { FederatedComponent } from './components/federated/federated.component';
 import { ProjectComponent } from './components/project/project.component';
 import { SharedModule } from 'projects/shared/src/public-api';
 
@@ -16,7 +16,7 @@ export function initializeApp(mfService: MicrofrontendService): () => Promise<vo
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent,
+    FederatedComponent,
     ProjectComponent
   ],
   imports: [

@@ -9,7 +9,6 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class NavbarComponent implements OnInit {
 
   @Input() links: { name: string, route: string }[] = [];
-  @Input() customLinks: { name: string, route: string }[] = [];
 
   constructor() { }
 

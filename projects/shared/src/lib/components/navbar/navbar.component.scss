@@ -1,4 +1,8 @@
-ul {
-  display: grid;
-  grid-auto-flow: column;
+:host {
+  ul {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 50px;
+  }
 }

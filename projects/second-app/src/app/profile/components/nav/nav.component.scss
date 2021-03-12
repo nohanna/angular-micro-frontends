@@ -1,16 +1,4 @@
 :host {
-  .banner {
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 82px;
-    > a {
-      > div {
-        font-size: 12px;
-      }
-    }
-  }
   ul {
     width: 250px;
     list-style: none;
@@ -31,7 +19,7 @@
       }
       .link.is-active,
       .link:hover {
-        background-color: #141414;
+        background-color: #691b1b;
       }
     }
   }

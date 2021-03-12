@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SettingsComponent } from './components/settings/settings.component';
 import { SharedModule } from 'projects/shared/src/public-api';
+import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, SettingsComponent],
+  declarations: [ProfileComponent, NavComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
     SharedModule
   ],
-  exports: [ProfileComponent, SettingsComponent]
+  exports: [ProfileComponent, NavComponent]
 })
 export class ProfileModule { }

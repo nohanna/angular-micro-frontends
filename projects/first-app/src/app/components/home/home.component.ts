@@ -9,14 +9,20 @@ import { Remote } from '../../loader/loader.model';
 })
 export class HomeComponent implements OnInit {
 
-  links: { name: string, route: string }[];
+  navLinks: { name: string, route: string }[];
+  sideLinks: { name: string, route: string }[];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.links = [
-      { name: 'second-app', route: '/project/second-app' },
-      { name: 'third-app', route: '/project/third-app' }
+    this.navLinks = [
+      { name: 'Second App', route: '/project/second-app' },
+      { name: 'Third App', route: '/project/third-app' }
+    ];
+    this.sideLinks = [
+      { name: 'Laptops', route: '/laptops' },
+      { name: 'TVs', route: '/tvs' },
+      { name: 'Phones', route: '/phones' }
     ];
   }
 

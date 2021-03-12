@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -7,6 +8,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent implements OnInit {
+
+  @Input() links: { name: string, route: string }[] = [];
+  @Input() customLinks: { name: string, route: string }[] = [];
 
   constructor() { }
 
