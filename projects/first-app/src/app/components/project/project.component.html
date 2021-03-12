@@ -1,11 +1,9 @@
 <div class="container">
   <lib-navbar [links]="navLinks"></lib-navbar>
   <lib-sidebar [links]="sideLinks">
-    <federated-component [remoteEntry]="navRemote?.remoteEntry" [remoteName]="navRemote?.remoteName"
-      [exposedModule]="navRemote?.exposedModule" [componentName]="navRemote?.componentName"></federated-component>
+    <federated-component [remote]="navRemote$"></federated-component>
   </lib-sidebar>
   <section class="main">
-    <federated-component [remoteEntry]="mainRemote?.remoteEntry" [remoteName]="mainRemote?.remoteName"
-      [exposedModule]="mainRemote?.exposedModule" [componentName]="mainRemote?.componentName"></federated-component>
+    <federated-component [remote]="mainRemote$"></federated-component>
   </section>
 </div>

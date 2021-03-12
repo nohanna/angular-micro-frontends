@@ -1,4 +1,6 @@
-import { Component, Input, ComponentFactoryResolver, Injector, OnInit, ViewChild, ViewContainerRef, ɵcreateInjector } from "@angular/core";
+import { Component, Input, ComponentFactoryResolver, Injector, OnInit, ViewChild, ViewContainerRef, ɵcreateInjector, OnDestroy, ComponentRef, OnChanges } from "@angular/core";
+import { Observable, Subscription } from "rxjs";
+import { Remote } from "../../loader/loader.model";
 import { loadRemoteModule } from "../../utils/federation.utils";
 
 @Component({
@@ -6,17 +8,12 @@ import { loadRemoteModule } from "../../utils/federation.utils";
   templateUrl: "./federated.component.html",
   styleUrls: ["./federated.component.scss"],
 })
-export class FederatedComponent implements OnInit {
-  @ViewChild('federatedComponent', { read: ViewContainerRef })
-  private federatedComponent!: ViewContainerRef;
-  @Input()
-  private remoteEntry!: string;
-  @Input()
-  private remoteName!: string;
-  @Input()
-  private exposedModule!: string;
-  @Input()
-  private componentName!: string;
+export class FederatedComponent implements OnInit, OnDestroy {
+
+  @ViewChild('federatedComponent', { read: ViewContainerRef }) private federatedComponent: ViewContainerRef;
+  @Input() private remote: Observable<Remote>;
+  private cmpRef: ComponentRef<Component>;
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private injector: Injector,
@@ -24,17 +21,26 @@ export class FederatedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    loadRemoteModule({
-      remoteEntry: this.remoteEntry,
-      remoteName: this.remoteName,
-      exposedModule: this.exposedModule,
-    }).then(federated => {
-      const component: any = federated[this.exposedModule].ɵmod.exports.find((e: any) => e.name === this.componentName);
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-      const { instance } = this.federatedComponent.createComponent(
-        componentFactory, undefined, ɵcreateInjector(federated[this.exposedModule], this.injector)
-      );
-    });
+    this.subscription.add(
+      this.remote.subscribe(remote => {
+        loadRemoteModule({
+          remoteEntry: remote.remoteEntry,
+          remoteName: remote.remoteName,
+          exposedModule: remote.exposedModule,
+        }).then(federated => {
+          if (this.cmpRef) this.cmpRef.destroy();
+          const component: any = federated[remote.exposedModule].ɵmod.exports.find((e: any) => e.name === remote.componentName);
+          const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+          this.cmpRef = this.federatedComponent.createComponent(
+            componentFactory, undefined, ɵcreateInjector(federated[remote.exposedModule], this.injector)
+          );
+        });
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
