@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { Microfrontend } from "../loader/loader.model";
 import { loadRemoteModule } from "./federation.utils";
-import { APP_ROUTES } from "../app.routes";
+import { FIRST_APP_ROUTES } from "../app-routing.module";
 
 
 export function buildRoutes(options: Microfrontend[]): Routes {
@@ -10,5 +10,8 @@ export function buildRoutes(options: Microfrontend[]): Routes {
     loadChildren: () => loadRemoteModule(o).then((m: any) => m[o.ngModuleName]),
   }));
 
-  return [...APP_ROUTES, ...lazyRoutes];
+  const routes = [...FIRST_APP_ROUTES, ...lazyRoutes];
+  console.log(`Concatenating lazy routes from remotes`);
+  console.log(routes);
+  return routes;
 }

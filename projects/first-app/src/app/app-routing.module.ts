@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
 
-const routes: Routes = [
+export const FIRST_APP_ROUTES: Routes = [
   {
     path: "",
     redirectTo: "home",
@@ -20,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(FIRST_APP_ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -25,16 +25,16 @@ export class MicrofrontendService {
         remoteEntry: "http://localhost:4201/remoteEntry.js",
         remoteName: "secondApp",
         exposedModule: "ProfileModule",
-        displayName: "Profile",
-        routePath: "profile",
+        displayName: "Second",
+        routePath: "second",
         ngModuleName: "ProfileModule",
       },
       {
         remoteEntry: "http://localhost:4202/remoteEntry.js",
         remoteName: "thirdApp",
         exposedModule: "ProfileModule",
-        displayName: "Profile",
-        routePath: "profile",
+        displayName: "Third",
+        routePath: "third",
         ngModuleName: "ProfileModule",
       }
     ];

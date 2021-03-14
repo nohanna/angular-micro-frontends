@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.links = [
-      { name: 'Third App Custom 1', route: '/laptops' },
+      { name: 'Creation', route: '/third/creation' },
       { name: 'Third App Custom 2', route: '/tvs' },
       { name: 'Third App Custom 3', route: '/phones' }
     ];

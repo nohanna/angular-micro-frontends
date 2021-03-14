@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.links = [
-      { name: 'Second App Custom 1', route: '/laptops' },
+      { name: 'Settings', route: '/second/settings' },
       { name: 'Second App Custom 2', route: '/tvs' },
       { name: 'Second App Custom 3', route: '/phones' }
     ];
