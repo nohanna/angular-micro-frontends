@@ -8,21 +8,13 @@
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
     grid-template-areas:
-        "side-bar nav-bar nav-bar"
-        "side-bar main-view main-view";
+      "side-bar nav-bar nav-bar"
+      "side-bar main-view main-view";
     lib-navbar::ng-deep {
       grid-area: nav-bar;
-      height: 50px;
-      display: flex;
-      position: relative;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1em 2em;
     }
     lib-sidebar::ng-deep {
       grid-area: side-bar;
-      display: flex;
-      flex-direction: column;
     }
     .main {
       background-color: #3a3a3a;
