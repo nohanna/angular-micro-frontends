@@ -23,7 +23,7 @@ export class MicrofrontendService {
     return [
       {
         remoteEntry: "http://localhost:4201/remoteEntry.js",
-        remoteName: "profile",
+        remoteName: "secondApp",
         exposedModule: "ProfileModule",
         displayName: "Profile",
         routePath: "profile",
@@ -31,7 +31,7 @@ export class MicrofrontendService {
       },
       {
         remoteEntry: "http://localhost:4202/remoteEntry.js",
-        remoteName: "profile",
+        remoteName: "thirdApp",
         exposedModule: "ProfileModule",
         displayName: "Profile",
         routePath: "profile",

@@ -11,8 +11,8 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "profile",
-      library: { type: "var", name: "profile" },
+      name: "third-app",
+      library: { type: "var", name: "thirdApp" },
       filename: "remoteEntry.js",
       exposes: {
         ProfileModule:

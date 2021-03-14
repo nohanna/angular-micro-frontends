@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
+      name: "first-app",
       remotes: {
         profile: "profile@http://localhost:4201/remoteEntry.js}"
       },

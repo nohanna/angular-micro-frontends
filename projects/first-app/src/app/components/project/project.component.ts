@@ -47,13 +47,13 @@ export class ProjectComponent implements OnInit, OnDestroy {
       case 'second-app':
         this.navRemoteSubject.next({
           remoteEntry: 'http://localhost:4201/remoteEntry.js',
-          remoteName: 'profile',
+          remoteName: 'secondApp',
           exposedModule: 'ProfileModule',
           componentName: 'NavComponent'
         });
         this.mainRemoteSubject.next({
           remoteEntry: 'http://localhost:4201/remoteEntry.js',
-          remoteName: 'profile',
+          remoteName: 'secondApp',
           exposedModule: 'ProfileModule',
           componentName: 'ProfileComponent'
         });
@@ -61,13 +61,13 @@ export class ProjectComponent implements OnInit, OnDestroy {
       case 'third-app':
         this.navRemoteSubject.next({
           remoteEntry: 'http://localhost:4202/remoteEntry.js',
-          remoteName: 'profile',
+          remoteName: 'thirdApp',
           exposedModule: 'ProfileModule',
           componentName: 'NavComponent'
         });
         this.mainRemoteSubject.next({
           remoteEntry: 'http://localhost:4202/remoteEntry.js',
-          remoteName: 'profile',
+          remoteName: 'thirdApp',
           exposedModule: 'ProfileModule',
           componentName: 'ProfileComponent'
         });
