@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'second-app';
+  navLinks: { name: string, route: string }[] = [];
+  sideLinks: { name: string, route: string }[] = [];
+
+  ngOnInit(): void {
+    this.navLinks = [
+      { name: 'A link', route: '/test' },
+      { name: 'Another one', route: '/test' }
+    ];
+    this.sideLinks = [
+      { name: 'Something', route: '/ok' },
+      { name: 'Whatever', route: '/ok' },
+    ];
+  }
 }

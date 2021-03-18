@@ -27,15 +27,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.computeRemotes(map.get('name'));
       })
     );
-    this.navLinks = [
-      { name: 'Second App', route: '/project/second-app' },
-      { name: 'Third App', route: '/project/third-app' }
-    ];
-    this.sideLinks = [
-      { name: 'Laptops', route: '/laptops' },
-      { name: 'TVs', route: '/tvs' },
-      { name: 'Phones', route: '/phones' }
-    ];
   }
 
   ngOnDestroy(): void {

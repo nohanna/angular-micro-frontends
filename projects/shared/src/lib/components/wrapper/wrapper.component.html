@@ -1,0 +1,9 @@
+<div class="container">
+  <lib-navbar [links]="navLinks"></lib-navbar>
+  <lib-sidebar [links]="sideLinks">
+    <ng-content select="[sidebar]"></ng-content>
+  </lib-sidebar>
+  <section class="main">
+    <ng-content select="[main]"></ng-content>
+  </section>
+</div>

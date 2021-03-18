@@ -1,26 +1,7 @@
 :host {
-  ul {
-    width: 250px;
-    list-style: none;
-    padding: 1em 0;
-    li {
-      padding: 0 8px;
-      .link {
-        border-radius: 4px;
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        height: 40px;
-        cursor: pointer;
-        transition: opacity 0.2s linear;
-        i {
-          margin-right: 1em;
-        }
-      }
-      .link.is-active,
-      .link:hover {
-        background-color: #691b1b;
-      }
+  lib-sidebar::ng-deep {
+    .link:hover {
+      background-color: #691b1b !important;
     }
   }
 }
