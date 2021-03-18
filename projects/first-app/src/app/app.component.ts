@@ -10,7 +10,7 @@ import { Remote } from './loader/loader.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  private navRemoteSubject: ReplaySubject<Remote> = new ReplaySubject<Remote>();
+  private navRemoteSubject: ReplaySubject<Remote | null> = new ReplaySubject<Remote | null>();
   navRemote$: Observable<Remote> = this.navRemoteSubject.asObservable().pipe(shareReplay());
 
   subscription: Subscription = new Subscription();
@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   computeRemotes(name: string): void {
-    console.log(name);
     switch (name) {
       case 'second':
         this.navRemoteSubject.next({
@@ -61,6 +60,7 @@ export class AppComponent implements OnInit {
         });
         break;
       default:
+        this.navRemoteSubject.next(null);
         break;
     }
   }
