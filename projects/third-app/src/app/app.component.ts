@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  navLinks: { name: string; route: string }[] = [];
-  sideLinks: { name: string; route: string }[] = [];
+export class AppComponent implements OnInit {
+  navLinks: { name: string; route: string }[];
+  sideLinks: { name: string; route: string }[];
 
   ngOnInit(): void {
     this.navLinks = [
-      { name: 'A link', route: '/test' },
-      { name: 'Another one', route: '/test' },
+      { name: 'Something', route: '/test' },
+      { name: 'Something else', route: '/test' },
     ];
     this.sideLinks = [
-      { name: 'Something', route: '/ok' },
-      { name: 'Whatever', route: '/ok' },
+      { name: 'A link', route: '/test' },
+      { name: 'Another one', route: '/test' },
+      { name: 'Whatever', route: '/test' },
     ];
   }
 }

@@ -1,29 +1,19 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { SharedModule } from 'projects/shared/src/public-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MicrofrontendService } from './loader/loader.service';
-import { HomeComponent } from './components/home/home.component';
 import { FederatedComponent } from './components/federated/federated.component';
+import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
-import { SharedModule } from 'projects/shared/src/public-api';
+import { MicrofrontendService } from './loader/loader.service';
 
 export function initializeApp(mfService: MicrofrontendService): () => Promise<void> {
   return () => mfService.initialise();
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FederatedComponent,
-    ProjectComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule
-  ],
+  declarations: [AppComponent, HomeComponent, FederatedComponent, ProjectComponent],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [
     MicrofrontendService,
     {
@@ -33,6 +23,6 @@ export function initializeApp(mfService: MicrofrontendService): () => Promise<vo
       deps: [MicrofrontendService],
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

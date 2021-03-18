@@ -5,11 +5,11 @@ import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: ProfileComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProfileRoutingModule { }
+export class ProfileRoutingModule {}

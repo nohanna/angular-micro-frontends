@@ -1,4 +1,7 @@
 <lib-wrapper [navLinks]="navLinks" [sideLinks]="sideLinks">
+  <ng-container sidebar>
+    <federated-component [remote]="navRemote$"></federated-component>
+  </ng-container>
   <ng-container main>
     <router-outlet></router-outlet>
   </ng-container>
