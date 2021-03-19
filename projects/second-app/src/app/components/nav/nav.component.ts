@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  links: { name: string; route: string }[] = [];
+  links: { name: string; route: any }[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     this.links = [
-      { name: 'Settings', route: '/settings' },
+      { name: 'Settings', route: 'settings' },
       { name: 'Second App Custom 2', route: '/test' },
       { name: 'Second App Custom 3', route: '/test' },
     ];

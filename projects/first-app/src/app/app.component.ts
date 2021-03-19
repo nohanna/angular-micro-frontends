@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   subscription: Subscription = new Subscription();
   navLinks: { name: string; route: string }[];
-  sideLinks: { name: string; route: string }[];
+  sideLinks: { name: string; route: any }[];
 
   constructor(private router: Router) {}
 

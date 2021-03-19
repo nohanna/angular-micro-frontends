@@ -5,14 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FederatedComponent } from './components/federated/federated.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProjectComponent } from './components/project/project.component';
 import { MicrofrontendService } from './loader/loader.service';
 
 export function initializeApp(mfService: MicrofrontendService): () => Promise<void> {
   return () => mfService.initialise();
 }
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FederatedComponent, ProjectComponent],
+  declarations: [AppComponent, HomeComponent, FederatedComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [
     MicrofrontendService,
