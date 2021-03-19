@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription.add(
-      this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {
+      this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
         const segment: string = window.location.href.split('/')[3];
         this.computeRemotes(segment);
       }),
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
         this.navRemoteSubject.next({
           remoteEntry: 'http://localhost:4201/remoteEntry.js',
           remoteName: 'secondApp',
-          exposedModule: 'ProfileModule',
+          exposedModule: 'HomeModule',
           componentName: 'NavComponent',
         });
         break;
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
         this.navRemoteSubject.next({
           remoteEntry: 'http://localhost:4202/remoteEntry.js',
           remoteName: 'thirdApp',
-          exposedModule: 'ProfileModule',
+          exposedModule: 'HomeModule',
           componentName: 'NavComponent',
         });
         break;

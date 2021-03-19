@@ -1,0 +1,8 @@
+:host {
+  lib-sidebar::ng-deep {
+    .link:hover,
+    .link.is-active {
+      background-color: #691b1b !important;
+    }
+  }
+}

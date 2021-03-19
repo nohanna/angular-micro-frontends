@@ -1,10 +1,12 @@
 <div class="banner">
-  <a [routerLink]="['/home']">
+  <a [routerLink]="['/']">
     <span>Microfrontends</span>
   </a>
 </div>
 <ul *ngIf="links">
   <ng-container *ngFor="let link of links">
-    <li><a [routerLink]="[link.route]">{{ link.name }}</a></li>
+    <li>
+      <a [routerLink]="[link.route]">{{ link.name }}</a>
+    </li>
   </ng-container>
 </ul>

@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { buildRoutes } from "../utils/route.utils";
-import { Microfrontend } from "./loader.model";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { buildRoutes } from '../utils/route.utils';
+import { Microfrontend } from './loader.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class MicrofrontendService {
   private microfrontends: Microfrontend[] = [];
@@ -22,21 +22,21 @@ export class MicrofrontendService {
   loadConfig(): Microfrontend[] {
     return [
       {
-        remoteEntry: "http://localhost:4201/remoteEntry.js",
-        remoteName: "secondApp",
-        exposedModule: "ProfileModule",
-        displayName: "Second",
-        routePath: "second",
-        ngModuleName: "ProfileModule",
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        remoteName: 'secondApp',
+        exposedModule: 'HomeModule',
+        displayName: 'Second',
+        routePath: 'second',
+        ngModuleName: 'HomeModule',
       },
       {
-        remoteEntry: "http://localhost:4202/remoteEntry.js",
-        remoteName: "thirdApp",
-        exposedModule: "ProfileModule",
-        displayName: "Third",
-        routePath: "third",
-        ngModuleName: "ProfileModule",
-      }
+        remoteEntry: 'http://localhost:4202/remoteEntry.js',
+        remoteName: 'thirdApp',
+        exposedModule: 'HomeModule',
+        displayName: 'Third',
+        routePath: 'third',
+        ngModuleName: 'HomeModule',
+      },
     ];
   }
 }
