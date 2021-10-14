@@ -41,12 +41,12 @@ export class FederatedComponent implements OnInit, OnDestroy {
             exposedModule: remote.exposedModule,
           }).then(federated => {
             if (this.cmpRef) this.cmpRef.destroy();
+            console.log(federated);
             const component: any = federated[remote.exposedModule].ɵmod.exports.find(
               (e: any) => e.name === remote.componentName,
             );
-            const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-              component,
-            );
+            const componentFactory =
+              this.componentFactoryResolver.resolveComponentFactory(component);
             this.cmpRef = this.federatedComponent.createComponent(
               componentFactory,
               undefined,

@@ -71,8 +71,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "first-app:build:production",
-              "extraWebpackConfig": "projects/first-app/webpack.config.js"
+              "browserTarget": "first-app:build:production"
             }
           }
         },
