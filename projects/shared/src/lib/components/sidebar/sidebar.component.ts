@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
-  @Input() links?: { name: string; route: string }[] = [];
+  @Input() links?: { name: string; route: string[] }[] = [];
 }

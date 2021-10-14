@@ -31,9 +31,9 @@ export class AppComponent implements OnInit {
       { name: 'Third App', route: '/third' },
     ];
     this.sideLinks = [
-      { name: 'Laptops', route: '/laptops' },
-      { name: 'TVs', route: '/tvs' },
-      { name: 'Phones', route: '/phones' },
+      { name: 'Laptops', route: ['/laptops'] },
+      { name: 'TVs', route: ['/tvs'] },
+      { name: 'Phones', route: ['/phones'] },
     ];
   }
 
@@ -47,14 +47,6 @@ export class AppComponent implements OnInit {
         this.navRemoteSubject.next({
           remoteEntry: 'http://localhost:4201/remoteEntry.js',
           remoteName: 'secondApp',
-          exposedModule: 'HomeModule',
-          componentName: 'NavComponent',
-        });
-        break;
-      case 'third':
-        this.navRemoteSubject.next({
-          remoteEntry: 'http://localhost:4202/remoteEntry.js',
-          remoteName: 'thirdApp',
           exposedModule: 'HomeModule',
           componentName: 'NavComponent',
         });

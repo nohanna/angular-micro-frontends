@@ -10,9 +10,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.sideLinks = [
-      { name: 'Laptops', route: '/laptops' },
-      { name: 'TVs', route: '/tvs' },
-      { name: 'Phones', route: '/phones' },
+      { name: 'Laptops', route: ['/laptops'] },
+      { name: 'TVs', route: ['/tvs'] },
+      { name: 'Phones', route: ['/phones'] },
     ];
   }
 }

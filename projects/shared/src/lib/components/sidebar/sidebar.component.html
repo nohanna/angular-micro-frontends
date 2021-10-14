@@ -1,9 +1,9 @@
 <ul *ngIf="links">
   <ng-container *ngFor="let link of links">
     <li>
-      <a class="link" [routerLink]="link.route" [routerLinkActive]="['is-active']">{{
-        link.name
-      }}</a>
+      <a class="link" [routerLink]="link.route | prefix" [routerLinkActive]="['is-active']">
+        {{ link.name }}
+      </a>
     </li>
   </ng-container>
 </ul>
