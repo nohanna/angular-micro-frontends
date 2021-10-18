@@ -5,9 +5,13 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
+const DECLARATIONS = [HomeComponent, NavComponent];
+
 @NgModule({
-  declarations: [HomeComponent, NavComponent],
+  declarations: DECLARATIONS,
   imports: [CommonModule, HomeRoutingModule, SharedModule],
-  exports: [HomeComponent, NavComponent],
+  exports: DECLARATIONS,
 })
-export class HomeModule {}
+export class HomeModule {
+  static declarations = DECLARATIONS;
+}

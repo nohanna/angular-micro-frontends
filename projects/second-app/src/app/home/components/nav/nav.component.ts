@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
+  exportAs: 'NavComponent',
 })
 export class NavComponent implements OnInit {
   links: { name: string; route: any }[] = [];
